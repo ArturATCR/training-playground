@@ -5,5 +5,23 @@ pipeline {
 		}
 	}
     stages {
+
+    stage('create file with current Date'){
+        saveAndPrintDate("test.txt")
     }
+
+    stage('verify if date exists')
+        doesValueExistInFilename("text.txt", "2019")
+    }
+}
+
+def saveAndPrintDate(filename = '') {
+    sh "date > $filename && cat $filename"
+}
+
+def doesValueExistInFilename(filename = '', value = '') {
+    sh "if grep $value $filename; then
+            echo "Found"
+        fi
+    "
 }
