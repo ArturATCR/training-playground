@@ -4,7 +4,7 @@ pipeline {
 
     stages {
 
-        stage('Parallel MVN and NMP'){
+        stage('Parallel MVN and NPM'){
 
             parallel {
 
@@ -30,6 +30,7 @@ pipeline {
                         sh 'npm --version'
                     }
                 }
+
             }
         }
 
