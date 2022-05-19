@@ -8,11 +8,15 @@ pipeline {
         stage('create file with Date'){
             steps {
                 retry(2) {
-                    sh 'date >> output.txt'
-                    sh 'cat output.txt'
-                    sh 'sleep 10s'
+                    date()
                 }
             }
         }
     }
+}
+
+def date(){
+    sh 'date >> output.txt'
+    sh 'cat output.txt'
+    sh 'sleep 10s'
 }
