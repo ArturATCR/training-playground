@@ -5,5 +5,12 @@ pipeline {
 		}
 	}
     stages {
+        stage('create file with Date'){
+            steps {
+                retry(3) {
+                    sh 'date > output.txt'
+                }
+            }
+        }
     }
 }
