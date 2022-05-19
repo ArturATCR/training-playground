@@ -1,4 +1,7 @@
 pipeline {
+    parameters {
+        choice(name: 'STAGE', choices: ['build', 'test'], description: 'Choose stage')
+    }
     agent { 
 		docker { 
 			image 'alpine:latest' 
@@ -6,18 +9,9 @@ pipeline {
 	}
     stages {
 
-        stage('Which step will be ran') {
-        input {
-                message "Please choose the stage to be executed"
-                parameters {
-                    string(name: 'STAGE', defaultValue: '', description: '')
-                }
-            }
-        }
-
         stage('build'){
             when {
-                STAGE : 'build'
+                environment( name: "STAGE", value: "build")
             }
             steps{
             echo "running BUILD"
@@ -26,7 +20,7 @@ pipeline {
 
         stage('test'){
             when {
-                STAGE : 'test'
+                environment( name: "STAGE", value: "test")
             }
             steps{
             echo "running TEST"
