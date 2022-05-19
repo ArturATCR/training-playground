@@ -26,5 +26,5 @@ def saveAndPrintDate(filename = '') {
 }
 
 def doesValueExistInFilename(filename = '', value = '') {
-    sh "if grep $value $filename; then echo Found fi"
+    sh "grep $value $filename"
 }
