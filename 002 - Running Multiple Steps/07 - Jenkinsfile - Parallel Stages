@@ -1,12 +1,8 @@
 pipeline {
-    agent { 
-		docker { 
-			image 'alpine:latest' 
-		}
-	}
+    agent none
     stages {
 
-        stage('mvn and npm'){
+        stage('build'){
 
             stages{
 
