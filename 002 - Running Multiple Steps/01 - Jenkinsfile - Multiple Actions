@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('create file with Date'){
             steps {
-                retry(2) {
+                retry(1) {
                     date()
                 }
             }
