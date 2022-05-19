@@ -5,5 +5,32 @@ pipeline {
 		}
 	}
     stages {
+
+        stage('Which step will be ran') {
+        input {
+                message "Please choose the stage to be executed"
+                parameters {
+                    string(name: 'STAGE', defaultValue: '', description: '')
+                }
+            }
+        }
+
+        stage('build'){
+            when {
+                STAGE : 'build'
+            }
+            steps{
+            echo "running BUILD"
+            }
+        }
+
+        stage('test'){
+            when {
+                STAGE : 'test'
+            }
+            steps{
+            echo "running TEST"
+            }
+        }
     }
 }
