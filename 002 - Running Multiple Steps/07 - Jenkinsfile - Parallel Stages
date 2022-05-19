@@ -1,10 +1,14 @@
 pipeline {
-    agent none
+    agent {
+		docker {
+			image 'alpine:latest'
+		}
+	}
     stages {
 
-        stage('build'){
+        stage('Parallel MVN and NMP'){
 
-            stages{
+            parallel {
 
                 stage('mvn') {
                     agent {
@@ -28,7 +32,7 @@ pipeline {
                         sh 'npm --version'
                     }
                 }
-             }
+            }
         }
 
     }
