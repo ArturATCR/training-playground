@@ -10,7 +10,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                	def buildConfigs = readJSON file: '004 - Using Environment Variables/02 - Jenkinsfile - JSON Configuration'
+                	def buildConfigs = readJSON file: '004 - Using Environment Variables/02 - JsonFile'
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
 					}

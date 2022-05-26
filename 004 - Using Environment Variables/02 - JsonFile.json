@@ -1,3 +1,10 @@
-[{ "name": "build", "command": "sh echo 'hello' "},
-{ "name": "run", "command": "sh echo 'running' "}
+[
+  {
+    "name": "build",
+    "command": "sh echo 'hello' "
+  },
+  {
+    "name": "run",
+    "command": "sh echo 'running' "
+  }
 ]
