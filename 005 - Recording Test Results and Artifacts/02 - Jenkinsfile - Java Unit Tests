@@ -8,7 +8,7 @@ pipeline {
         stage('tests') {
             steps{
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
-                    sh 'mvn -s "$MAVEN_SETTINGS" test'
+                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/03 - Sonar Integration/target/java-app-1.0.0.jar"  test'
                 }
             }
         }
