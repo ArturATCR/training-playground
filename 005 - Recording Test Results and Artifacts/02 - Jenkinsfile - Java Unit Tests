@@ -4,13 +4,10 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
-    tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
-    }
     stages {
         stage('tests') {
             steps{
+                sh 'apk add openjdk8-jre'
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
                     sh 'mvn -s $MAVEN_SETTINGS clean package'
                 }
