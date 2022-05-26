@@ -8,7 +8,7 @@ pipeline {
         NUMBER_OF_ISSUES = 'mock'
     }
     stages {
-        stage('notification') {
+        stage('build') {
             steps {
                 echo "$NUMBER_OF_ISSUES"
             }
