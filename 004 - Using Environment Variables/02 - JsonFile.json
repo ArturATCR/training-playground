@@ -1,10 +1,10 @@
 [
   {
     "name": "build",
-    "command": "sh echo 'hello' "
+    "command": "echo 'hello' "
   },
   {
     "name": "run",
-    "command": "sh echo 'running' "
+    "command": "echo 'running' "
   }
 ]
