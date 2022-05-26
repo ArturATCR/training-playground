@@ -8,9 +8,10 @@ pipeline {
         stage('build') {
             steps {
                 scripts {
-                	def buildConfigs = []
+                	def buildConfigs = readJSON file: '004 - Using Environment Variables/03 - JsonFile.json'
                 	buildConfigs.each{ buildConfig ->
-                		sh "echo '$buildConfig.name' && $buildConfig.command"
+                		sh "echo '$buildConfig.name'"
+                		$buildConfig.command
 					}
                 }
             }
