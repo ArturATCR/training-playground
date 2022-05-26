@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "$NUMBER_OF_ISSUES"
+                NUMBER_OF_ISSUES = '10'
             }
         }
         stage('notification') {
