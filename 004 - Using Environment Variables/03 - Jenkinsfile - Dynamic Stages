@@ -11,7 +11,7 @@ pipeline {
                 	def buildConfigs = readJSON file: '004 - Using Environment Variables/03 - JsonFile.json'
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name'"
-                		$buildConfig.command
+                		buildConfig.command
 					}
                 }
             }
