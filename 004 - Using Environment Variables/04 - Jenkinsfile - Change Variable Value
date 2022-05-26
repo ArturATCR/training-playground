@@ -5,19 +5,13 @@ pipeline {
 		}
 	}
     environment {
-        NUMBER_OF_ISSUES = ''
+        NUMBER_OF_ISSUES = 'mock'
     }
     stages {
-            stage('test') {
-                steps {
-                    env.NUMBER_OF_ISSUES  = '10'
-                }
+        stage('build') {
+            steps {
+                echo "$NUMBER_OF_ISSUES"
             }
-
-            stage('notification') {
-                steps {
-                    echo "$NUMBER_OF_ISSUES"
-                }
-            }
+        }
     }
 }
