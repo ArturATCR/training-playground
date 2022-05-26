@@ -1,4 +1,3 @@
-'[
-{ "name": "build", "command": "sh echo 'hello' "},
+[{ "name": "build", "command": "sh echo 'hello' "},
 { "name": "run", "command": "sh echo 'running' "}
-]'
+]
