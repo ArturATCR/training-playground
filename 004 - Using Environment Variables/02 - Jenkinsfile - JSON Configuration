@@ -4,11 +4,13 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+
+
     stages {
         stage('build') {
             steps {
                 script {
-                	def buildConfigs = []
+                	def buildConfigs = '[{ "key": "value"}]'
                 	buildConfigs.each{ buildConfig ->
                 		sh "echo '$buildConfig.name' && $buildConfig.command"
 					}
