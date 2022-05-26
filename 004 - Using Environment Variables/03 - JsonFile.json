@@ -1,7 +1,7 @@
 [
   {
     "name": "build",
-    "command": "            stages{\n\n                stage('mvn') {\n                    agent {\n                        docker {\n                            image 'maven:3.3.3'\n                        }\n                    }\n                    steps {\n                        sh 'mvn --version'\n                    }\n                }\n\n\n                stage('npm') {\n                    agent {\n                        docker {\n                            image 'node:6.3'\n                        }\n                    }\n                    steps {\n                        sh 'npm --version'\n                    }\n                }\n             }"
+    "command": "echo 'build'"
   },
   {
     "name": "run",
