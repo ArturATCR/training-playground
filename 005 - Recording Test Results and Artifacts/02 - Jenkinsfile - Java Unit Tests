@@ -8,10 +8,9 @@ pipeline {
         stage('tests') {
             steps{
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
-                    sh 'mvn -s $MAVEN_SETTINGS clean test'
+                    sh 'mvn -s $MAVEN_SETTINGS test'
                 }
             }
-
         }
     }
 }
