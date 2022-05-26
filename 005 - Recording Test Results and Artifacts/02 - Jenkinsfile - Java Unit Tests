@@ -1,15 +1,14 @@
 pipeline {
     agent { 
 		docker { 
-			image 'alpine:latest' 
+			image 'maven:3.3.3'
 		}
 	}
     stages {
         stage('tests') {
             steps{
-                sh 'apk add openjdk8-jre'
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
-                    sh 'mvn -s $MAVEN_SETTINGS clean package'
+                    sh 'mvn -s $MAVEN_SETTINGS test'
                 }
             }
 
