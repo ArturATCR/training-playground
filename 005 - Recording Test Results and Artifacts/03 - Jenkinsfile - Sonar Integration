@@ -9,7 +9,7 @@ pipeline {
         stage('tests') {
             steps {
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
-                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/03 - Sonar Integration/pom.xml" clean test sonar:sonar -Dsonar.host.url=http://sonarqube:8081'
+                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/03 - Sonar Integration/pom.xml" sonar:sonar -Dsonar.host.url=http://sonarqube:9000'
                 }
             }
         }
