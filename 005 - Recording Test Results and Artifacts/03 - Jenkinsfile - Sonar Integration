@@ -8,8 +8,7 @@ pipeline {
         stage('tests') {
             steps {
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
-                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/03 - Sonar Integration/pom.xml" clean test sonar:sonar -Dsonar.host.url=http://localhost:9000
-                                                                                                                                             -Dsonar.login=the-generated-token '
+                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/03 - Sonar Integration/pom.xml" clean test sonar:sonar -Dsonar.host.url=http://3.124.164.63:8081'
                 }
             }
         }
