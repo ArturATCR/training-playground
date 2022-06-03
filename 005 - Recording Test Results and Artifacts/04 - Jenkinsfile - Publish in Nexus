@@ -5,6 +5,9 @@ pipeline {
 			args '--network training-playground'
 		}
 	}
+    triggers {
+      pollSCM '* * * * *'
+    }
     stages {
 
         stage('tests') {
