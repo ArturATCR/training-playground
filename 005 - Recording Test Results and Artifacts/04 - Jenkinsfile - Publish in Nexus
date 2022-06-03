@@ -2,13 +2,14 @@ pipeline {
     agent { 
 		docker { 
 			image 'maven:3.3.3'
+			args '--network training-playground'
 		}
 	}
     stages {
         stage('tests') {
             steps {
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
-                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/04 - Publish in Nexus/pom.xml" clean deploy'
+                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/04 - Publish in Nexus/pom.xml" clean deploy -DaltDeploymentRepository=maven-releases::default::http://nexus:8081'
                 }
             }
         }
