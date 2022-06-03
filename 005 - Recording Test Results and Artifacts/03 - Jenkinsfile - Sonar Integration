@@ -2,13 +2,14 @@ pipeline {
     agent { 
 		docker { 
 			image 'maven:3.3.3'
+			args '-e network="training-playground"'
 		}
 	}
     stages {
         stage('tests') {
             steps {
                 configFileProvider( [configFile(fileId: 'settings.xml', variable: 'MAVEN_SETTINGS')]){
-                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/03 - Sonar Integration/pom.xml" clean test sonar:sonar -Dsonar.host.url=http://3.124.164.63:8081'
+                    sh 'mvn -s "$MAVEN_SETTINGS" -f "005 - Recording Test Results and Artifacts/03 - Sonar Integration/pom.xml" clean test sonar:sonar -Dsonar.host.url=sonarqube:8081'
                 }
             }
         }
