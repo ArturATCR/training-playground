@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>godLikePipeline3</groupId>
 	<artifactId>java-app</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.2</version>
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
